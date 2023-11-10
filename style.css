@@ -1,0 +1,137 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+}
+.box{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: repeating-conic-gradient(from var(--a), #ff2770 0%, #2b27ff 5%, transparent 5%, transparent 40%, #ff2770 50%);
+    animation: animate 4s linear infinite;
+    position: relative;
+    border: 2px solid red;
+}
+
+@property --a 
+{
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+@keyframes animate {
+    0%{
+        --a: 0deg
+    }
+    100%{
+        --a: 360deg;
+    }
+}
+
+.box::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-conic-gradient(from var(--a), #27bbff 0%, #27ff68 5%, transparent 5%, transparent 40%, #27bbff 50%);
+    animation: animate 4s linear infinite;
+    animation-delay: -1s;
+    border-radius: 50%;
+}
+
+.mini{
+    width: 15px;
+    height: 20px;
+    background-color: #fff;
+}
+
+.stand{
+    width: 60px;
+    height: 200px;
+    background-color: #ccc;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.stand .btn1, .btn2, .btn3 {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: green;
+}
+
+.btn2{
+    background-color: red;
+    animation: green 1s linear infinite;
+}
+
+@keyframes green{
+    0%{
+        background-color: #ccc;
+    }
+    100%{
+        background-color: red;
+    }
+}
+.btn3{
+    background-color: yellow;
+    animation: yell 1s linear infinite;
+}
+
+@keyframes yell{
+    0%{
+        background-color: #ccc;
+    }
+    100%{
+        background-color: yellow;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom {
+    width: 150px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(248, 245, 245, 0.35) 0px 5px 15px;
+}
+
+.bottom .dot{
+    width: 100px;
+    height: 30px;    
+    background-color: green;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom .dot span{
+    color: #fff;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
